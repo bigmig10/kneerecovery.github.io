@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Journey Back to Playin</title>
+  <meta name="description" content="Athlete-focused recovery education for meniscus, ACL, and general post-op knees. Calm, practical, no hype." />
+
+  <!-- Theme B: Hopeful Minimal (single-file) -->
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0b1220;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --card:#f8fafc;
+      --chip:#eef2f7;
+      --accent:#16a34a;         /* hope */
+      --accent2:#2563eb;        /* credibility */
+      --soft:#ecfdf5;
+      --radius:16px;
+      --shadow: 0 10px 25px rgba(2,6,23,.08);
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 96px}
+    .top{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(255,255,255,.88);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{max-width:var(--max);margin:0 auto;padding:12px 18px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .brand b{font-size:14px;letter-spacing:.2px}
+    .brand span{font-size:12px;color:var(--muted)}
+    .links{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:9px 12px;border-radius:999px;
+      border:1px solid var(--line);background:var(--chip);
+      text-decoration:none;font-size:13px;color:var(--ink);
+    }
+    .pill.primary{background:var(--soft);border-color:#bbf7d0}
+    .pill:hover{transform:translateY(-1px);transition:.12s}
+    .hero{
+      margin:18px 0 14px;
+      border:1px solid var(--line);
+      border-radius:calc(var(--radius) + 6px);
+      background:
+        radial-gradient(900px 260px at 30% 10%, rgba(22,163,74,.10), transparent 55%),
+        radial-gradient(780px 240px at 80% 20%, rgba(37,99,235,.10), transparent 55%),
+        #fff;
+      box-shadow:var(--shadow);
+      padding:26px 22px;
+    }
+    .hero h1{margin:0 0 8px;font-size:34px;letter-spacing:-.6px}
+    .hero p{margin:0 0 14px;color:var(--muted);max-width:70ch;line-height:1.45}
+    .hero .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;
+      text-decoration:none;font-weight:600;font-size:13px;
+      border:1px solid var(--line);background:#fff;
+    }
+    .cta.good{background:var(--accent);color:#fff;border-color:rgba(0,0,0,0)}
+    .cta.good:hover{filter:brightness(.97)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}
+    .card{
+      grid-column:span 4;
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:0 6px 16px rgba(2,6,23,.05);
+    }
+    .card h3{margin:0 0 6px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+    @media (max-width: 900px){ .card{grid-column:span 6} }
+    @media (max-width: 640px){ .card{grid-column:span 12} .hero h1{font-size:28px} }
+
+    section{scroll-margin-top:88px;margin-top:18px}
+    .sectionHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;margin:18px 0 10px}
+    .sectionHead h2{margin:0;font-size:20px;letter-spacing:-.2px}
+    .sectionHead .sub{color:var(--muted);font-size:13px;margin:0}
+
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+    @media (max-width: 860px){ .two{grid-template-columns:1fr} }
+
+    .kvs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width: 640px){ .kvs{grid-template-columns:1fr} }
+    label{font-size:12px;color:var(--muted);display:block;margin:0 0 6px}
+    input,select,textarea{
+      width:100%;
+      padding:10px 10px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      outline:none;
+      font-size:14px;background:#fff;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid var(--line);
+      background:var(--soft);
+      font-weight:700;font-size:13px;
+      cursor:pointer;
+    }
+    .btn.alt{background:#fff}
+    .note{font-size:12px;color:var(--muted);line-height:1.45}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(37,99,235,.08);
+      border:1px solid rgba(37,99,235,.15);
+      font-size:12px;color:#0b2a63;
+    }
+    .result{
+      margin-top:10px;
+      border:1px dashed rgba(22,163,74,.45);
+      background:rgba(22,163,74,.06);
+      border-radius:14px;
+      padding:12px;
+    }
+    .result h4{margin:0 0 6px;font-size:14px}
+    .result ul{margin:0;padding-left:18px;color:var(--ink);font-size:13px;line-height:1.45}
+    .divider{height:1px;background:var(--line);margin:14px 0}
+
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      padding:10px 12px;
+      box-shadow:0 6px 16px rgba(2,6,23,.04);
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700;font-size:13px}
+    .endDisclaimer{
+      margin-top:14px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      font-size:12px;color:var(--muted);line-height:1.5;
+    }
+
+    /* Minimal consent banner */
+    .consent{
+      position:fixed;left:12px;right:12px;bottom:70px;z-index:60;
+      max-width:var(--max);margin:0 auto;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.96);
+      box-shadow:var(--shadow);
+      padding:12px 12px;
+      display:none;
+    }
+    .consent .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+    .consent p{margin:0;color:var(--muted);font-size:12px;line-height:1.45;max-width:88ch}
+    .consent .actions{display:flex;gap:8px}
+    .consent .actions button{white-space:nowrap}
+
+    /* Footer strip disclaimer on every page */
+    .strip{
+      position:fixed;left:0;right:0;bottom:0;z-index:70;
+      border-top:1px solid var(--line);
+      background:rgba(255,255,255,.95);
+      backdrop-filter:saturate(180%) blur(10px);
+    }
+    .strip .inner{
+      max-width:var(--max);margin:0 auto;padding:10px 18px;
+      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      font-size:12px;color:var(--muted);line-height:1.35;
+    }
+    .strip b{color:var(--ink);font-weight:800}
+    .strip a{color:var(--accent2);text-decoration:none}
+    .strip a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+  <header class="top">
+    <div class="nav">
+      <div class="brand">
+        <b>Journey Back to Playin</b>
+        <span>Athlete-focused recovery education (Meniscus • ACL • Post-op)</span>
+      </div>
+      <nav class="links" aria-label="Primary navigation">
+        <a class="pill primary" href="#ready">Am I Ready?</a>
+        <a class="pill" href="#pain">Pain</a>
+        <a class="pill" href="#mental">Mindset</a>
+        <a class="pill" href="#train">Train Injured</a>
+        <a class="pill" href="#resources">Resources</a>
+        <a class="pill" href="#ask">Ask</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero" id="home">
+      <h1>Return to performance, not just return to play.</h1>
+      <p>
+        Built for athletes (soccer-first, transferable to all sports). Clear readiness levels, practical pain signals,
+        and calm mindset support for meniscus, ACL, and general post-op knees.
+        Public author: <b>Miguelangel L.</b>
+      </p>
+      <div class="ctaRow">
+        <a class="cta good" href="#ready">Start: Am I Ready?</a>
+        <a class="cta" href="#ask">Email me your question</a>
+        <span class="badge">Goal: help at least one person. Please share if it helped.</span>
+      </div>
+
+      <div class="grid" aria-label="Quick paths">
+        <div class="card">
+          <h3>Am I Ready?</h3>
+          <p>Checklist + decision tree for “Walk → Jog → Run → Sprint → Cut → Contact.”</p>
+        </div>
+        <div class="card">
+          <h3>Pain & Swelling</h3>
+          <p>What’s normal, what’s not, and when to message your PT/surgeon.</p>
+        </div>
+        <div class="card">
+          <h3>Mindset</h3>
+          <p>Fear of reinjury, confidence rebuilding, and staying steady.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- READY -->
+    <section id="ready">
+      <div class="sectionHead">
+        <div>
+          <h2>Am I Ready?</h2>
+          <p class="sub">Option C: checklist + decision flow (sport-agnostic)</p>
+        </div>
+      </div>
+
+      <div class="panel two">
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">Readiness Levels (use as “gates”)</h3>
+          <div class="divider"></div>
+          <div class="kvs">
+            <div><span class="badge">Gate 1</span><p class="note"><b>Walk</b>: daily walking without increasing swelling next day.</p></div>
+            <div><span class="badge">Gate 2</span><p class="note"><b>Jog</b>: short jogs with stable swelling/pain pattern over 48 hours.</p></div>
+            <div><span class="badge">Gate 3</span><p class="note"><b>Run</b>: longer straight-line running, stable next-day knee.</p></div>
+            <div><span class="badge">Gate 4</span><p class="note"><b>Sprint</b>: short bursts, no “reactive swelling” spike.</p></div>
+            <div><span class="badge">Gate 5</span><p class="note"><b>Cut</b>: deceleration + direction change with confidence.</p></div>
+            <div><span class="badge">Gate 6</span><p class="note"><b>Contact</b>: sport-like chaos: bumps, awkward steps, fatigue.</p></div>
+          </div>
+
+          <div class="endDisclaimer">
+            <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician. Consult your surgeon/PT for diagnosis and treatment.
+            In emergencies, call 911 or go to the ER.
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">Quick Decision Flow</h3>
+          <div class="divider"></div>
+          <p class="note"><b>If swelling is trending up</b> (worse next day), you are not ready to progress a gate.</p>
+          <p class="note"><b>If pain is sharp/locking</b> or there is true instability/giving way, do not “push through.”</p>
+          <p class="note"><b>If confidence is the limiter</b> but symptoms are stable, progress with controlled exposures (not hero sessions).</p>
+
+          <div class="divider"></div>
+
+          <h3 style="margin:0 0 8px;font-size:15px">Timeline Calculator (v1)</h3>
+          <p class="note">Early draft: accurate personalization comes later (we will refine).</p>
+
+          <div class="kvs">
+            <div>
+              <label for="sxType">Surgery / injury type</label>
+              <select id="sxType">
+                <option value="meniscus_repair">Meniscus repair</option>
+                <option value="meniscectomy">Partial meniscectomy</option>
+                <option value="root_repair">Meniscus root repair</option>
+                <option value="acl">ACL reconstruction</option>
+                <option value="post_op">General post-op (non-specific)</option>
+                <option value="no_surgery">No surgery / conservative</option>
+              </select>
+            </div>
+            <div>
+              <label for="weeks">Weeks since surgery/injury</label>
+              <input id="weeks" type="number" min="0" step="1" placeholder="e.g., 6" />
+            </div>
+            <div>
+              <label for="sport">Sport</label>
+              <select id="sport">
+                <option>Soccer</option>
+                <option>Basketball</option>
+                <option>Running</option>
+                <option>Combat sports</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="swelling">Swelling today?</label>
+              <select id="swelling">
+                <option value="no">No / minimal</option>
+                <option value="some">Some</option>
+                <option value="yes">Yes / noticeable</option>
+              </select>
+            </div>
+            <div>
+              <label for="pain">Pain (0–10)</label>
+              <input id="pain" type="number" min="0" max="10" step="1" placeholder="e.g., 2" />
+            </div>
+            <div>
+              <label for="cleared">Current clearance</label>
+              <select id="cleared">
+                <option value="not">Not cleared</option>
+                <option value="run">Cleared to run</option>
+                <option value="sport">Cleared to return to sport</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" id="calcBtn" type="button">Generate phase guidance</button>
+            <button class="btn alt" id="resetBtn" type="button">Reset</button>
+          </div>
+
+          <div class="result" id="calcOut" style="display:none">
+            <h4 id="phaseTitle">Phase</h4>
+            <ul id="phaseList"></ul>
+          </div>
+
+          <div class="endDisclaimer">
+            <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician. Consult your surgeon/PT for diagnosis and treatment.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px">
+        <h3 style="margin:0 0 10px;font-size:15px">Sources (starter set)</h3>
+        <p class="note">
+          This site will maintain a “sources first” posture. These are general references, not personalized care.
+        </p>
+        <ul class="note" style="margin:0;padding-left:18px">
+          <li>AAOS patient education (knee + meniscus topics)</li>
+          <li>PubMed / clinical rehab protocols (meniscus + ACL return-to-sport literature)</li>
+          <li>Consensus statements on return-to-sport testing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PAIN -->
+    <section id="pain">
+      <div class="sectionHead">
+        <div>
+          <h2>Pain & Swelling</h2>
+          <p class="sub">Signals, patterns, and when to escalate</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="grid" style="margin-top:0">
+          <div class="card">
+            <h3>Green-ish</h3>
+            <p>Predictable soreness that fades with warm-up and does not spike swelling the next day.</p>
+          </div>
+          <div class="card">
+            <h3>Yellow</h3>
+            <p>Swelling trend rising over 48 hours, stiffness increasing, pain creeping up with volume.</p>
+          </div>
+          <div class="card">
+            <h3>Red</h3>
+            <p>Locking, true giving way, fever/redness, calf pain/swelling, or sudden sharp pain change.</p>
+          </div>
+        </div>
+
+        <div class="endDisclaimer">
+          <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician. If you have red flags, contact your clinician or urgent care/ER.
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTAL -->
+    <section id="mental">
+      <div class="sectionHead">
+        <div>
+          <h2>Mindset (Mental Recovery)</h2>
+          <p class="sub">Calm confidence rebuild, not forced optimism</p>
+        </div>
+      </div>
+
+      <div class="panel two">
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">Common blocks</h3>
+          <ul class="note" style="margin:0;padding-left:18px">
+            <li>“I’m cleared but I don’t trust it.”</li>
+            <li>Fear spikes when you add chaos (fatigue, contact, uneven ground).</li>
+            <li>Confidence is a skill: progressive exposure beats heroic jumps.</li>
+          </ul>
+          <div class="endDisclaimer">
+            <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician.
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">A simple exposure ladder</h3>
+          <ol class="note" style="margin:0;padding-left:18px">
+            <li>Control: rehearsed movements</li>
+            <li>Speed: increase pace slightly</li>
+            <li>Decision: add reaction cues</li>
+            <li>Chaos: fatigue + unpredictability</li>
+          </ol>
+          <p class="note" style="margin-top:10px">
+            Measure “confidence” like a metric: if symptoms are stable, add one small variable at a time.
+          </p>
+          <div class="endDisclaimer">
+            <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAIN -->
+    <section id="train">
+      <div class="sectionHead">
+        <div>
+          <h2>Train While Injured</h2>
+          <p class="sub">Maintain VO₂, strength, and sanity without inflaming the knee</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="grid" style="margin-top:0">
+          <div class="card">
+            <h3>Cardio (low knee load)</h3>
+            <p>Bike / upper-body erg / swimming (as cleared). Keep swelling response as the limiter.</p>
+          </div>
+          <div class="card">
+            <h3>Strength (safe bias)</h3>
+            <p>Upper body + trunk + hip dominance. Progress only if next-day knee remains stable.</p>
+          </div>
+          <div class="card">
+            <h3>Body comp</h3>
+            <p>Injury phases can add boredom-eating. Simple structure beats willpower.</p>
+          </div>
+        </div>
+
+        <div class="endDisclaimer">
+          <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician. Follow your PT/surgeon restrictions.
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources">
+      <div class="sectionHead">
+        <div>
+          <h2>Resources</h2>
+          <p class="sub">Optional; nice to have (no affiliate links yet)</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <ul class="note" style="margin:0;padding-left:18px">
+          <li>Braces (return-to-sport phases)</li>
+          <li>Hot/cold therapy</li>
+          <li>Muscle recovery tools</li>
+          <li>Programming platforms</li>
+          <li>Supplements (caution; evidence varies)</li>
+        </ul>
+        <p class="note" style="margin-top:10px">
+          When/if links are added later, they will be phase-based and disclosure-first.
+        </p>
+        <div class="endDisclaimer">
+          <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician.
+        </div>
+      </div>
+    </section>
+
+    <!-- ASK -->
+    <section id="ask">
+      <div class="sectionHead">
+        <div>
+          <h2>Ask</h2>
+          <p class="sub">If you used the resources above, email me your situation and your question</p>
+        </div>
+      </div>
+
+      <div class="panel two">
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">Email template (auto-fills)</h3>
+          <p class="note">Click the button. Your email draft will include prompts for surgery type/date/sport.</p>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="cta good" id="mailLink" href="#">Email Miguelangel L.</a>
+            <button class="btn alt" id="copyTemplate" type="button">Copy template</button>
+          </div>
+          <p class="note" style="margin-top:10px">
+            If this site helped, please share it so I can help even more people.
+          </p>
+          <div class="endDisclaimer">
+            <b>Disclaimer:</b> Educational only; not medical advice; not a substitute for a clinician.
+          </div>
+        </div>
+        <div>
+          <h3 style="margin:0 0 10px;font-size:15px">Default FAQ pack</h3>
+          <details open>
+            <summary>Why being “cleared” doesn’t always mean “ready”</summary>
+            <p class="note">Medical clearance often focuses on tissue healing and basic function; sport demands require capacity + confidence + chaos tolerance.</p>
+          </details>
+          <details>
+            <summary>What if swelling keeps coming back?</summary>
+            <p class="note">Treat swelling trend as your governor: reduce volume/intensity and coordinate with your clinician for specific guidance.</p>
+          </details>
+          <details>
+            <summary>When should I message my PT/surgeon?</summary>
+            <p class="note">Any red flags (locking, giving way, fever/redness, calf pain/swelling) or sudden symptom shifts—don’t “wait it out.”</p>
+          </details>
+          <details>
+            <summary>How do I rebuild confidence?</summary>
+            <p class="note">Progressive exposure: add one variable at a time (speed → decision → chaos) while keeping symptoms stable.</p>
+          </details>
+          <details>
+            <summary>Can I keep fitness while injured?</summary>
+            <p class="note">Often yes—choose modalities that don’t provoke swelling and follow your restrictions.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal consent banner (analytics placeholder) -->
+  <div class="consent" id="consent">
+    <div class="row">
+      <p>
+        <b>Privacy note:</b> This site may use analytics later to understand what helps athletes most.
+        Analytics is <b>disabled</b> until a GA4 ID is added and you choose “Allow.”
+      </p>
+      <div class="actions">
+        <button class="btn alt" id="deny">Decline</button>
+        <button class="btn" id="allow">Allow</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer strip disclaimer on every page -->
+  <div class="strip" role="contentinfo" aria-label="Site disclaimer strip">
+    <div class="inner">
+      <div>
+        <b>Not medical advice.</b> Educational only; not a substitute for a clinician. US-focused.
+        <a href="#ask">Ask a question</a>.
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <span>Author: <b>Miguelangel L.</b></span>
+        <span style="opacity:.8">© <span id="yr"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Consent banner (minimal). Analytics is intentionally disabled without a GA4 ID.
+    const consentKey = "jbp_consent_v1";
+    const consentEl = document.getElementById('consent');
+    const saved = localStorage.getItem(consentKey);
+    if (!saved) consentEl.style.display = "block";
+
+    document.getElementById('deny').onclick = () => {
+      localStorage.setItem(consentKey, "denied");
+      consentEl.style.display = "none";
+    };
+    document.getElementById('allow').onclick = () => {
+      localStorage.setItem(consentKey, "allowed");
+      consentEl.style.display = "none";
+      // Placeholder: When you add GA4, load it here conditionally.
+      // Example (when ready):
+      // const GA_ID = "G-XXXXXXXXXX";
+      // if (GA_ID && GA_ID.startsWith("G-")) { loadGA(GA_ID); }
+    };
+
+    // Timeline calculator (v1 heuristic)
+    const out = document.getElementById('calcOut');
+    const title = document.getElementById('phaseTitle');
+    const list = document.getElementById('phaseList');
+
+    function setResult(phase, bullets){
+      title.textContent = phase;
+      list.innerHTML = bullets.map(b => `<li>${b}</li>`).join("");
+      out.style.display = "block";
+      out.scrollIntoView({behavior:"smooth", block:"nearest"});
+    }
+
+    document.getElementById('calcBtn').onclick = () => {
+      const type = document.getElementById('sxType').value;
+      const w = Number(document.getElementById('weeks').value || 0);
+      const swelling = document.getElementById('swelling').value;
+      const pain = Number(document.getElementById('pain').value || 0);
+      const cleared = document.getElementById('cleared').value;
+
+      const caution = [];
+      if (swelling === "yes") caution.push("Swelling is a limiter: reduce load and avoid progressing gates this week.");
+      if (pain >= 6) caution.push("Pain ≥ 6/10: do not progress; coordinate with your clinician.");
+      if (caution.length === 0) caution.push("If symptoms stay stable over 48 hours, you can add one small variable (not multiple).");
+
+      // very rough phase mapping (we will refine later)
+      let phase = "Foundation Phase";
+      if (w < 2) phase = "Protect & Calm Phase";
+      else if (w < 6) phase = "Base Capacity Phase";
+      else if (w < 12) phase = "Build Phase";
+      else if (w < 20) phase = "Return-to-Sport Prep";
+      else phase = "Performance & Chaos Tolerance";
+
+      // type tweaks
+      if (type === "root_repair" && w < 12) phase = "Protect & Build (Root Repair tends to be conservative)";
+      if (type === "acl" && w < 12) phase = "ACL Early Build (strength + control first)";
+      if (type === "meniscectomy" && w >= 4) phase = "Rebuild Capacity (Meniscectomy often progresses faster, still respect swelling)";
+
+      const bullets = [
+        `<b>Your phase:</b> ${phase}`,
+        `<b>Focus this week:</b> one controllable progression (volume OR intensity OR complexity).`,
+        `<b>Avoid:</b> “hero sessions” that spike next-day swelling.`,
+        `<b>Readiness gates:</b> Walk → Jog → Run → Sprint → Cut → Contact (advance only when stable).`,
+        `<b>Clearance note:</b> You selected “${cleared === "not" ? "not cleared" : (cleared === "run" ? "cleared to run" : "cleared to return to sport") }”. Clearance ≠ readiness; symptoms + confidence still matter.`,
+        ...caution
+      ];
+      setResult("Guidance", bullets);
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      ["weeks","pain"].forEach(id => document.getElementById(id).value = "");
+      ["sxType","sport","swelling","cleared"].forEach(id => document.getElementById(id).selectedIndex = 0);
+      out.style.display = "none";
+    };
+
+    // Ask page mailto template
+    const subject = encodeURIComponent("Knee question (surgery type/date/sport)");
+    const body =
+`Hi Miguelangel,
+
+I used your site and have a question.
+
+1) Surgery/injury type:
+2) Surgery/injury date:
+3) Sport:
+4) Current week since surgery/injury:
+5) Current clearance (not cleared / cleared to run / cleared to sport):
+6) Pain (0–10) + swelling trend (better/same/worse):
+7) What I can do now without flare-ups:
+8) My question:
+
+Thank you.`;
+    const mail = `mailto:migui7312@icloud.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+    const mailLink = document.getElementById('mailLink');
+    mailLink.href = mail;
+
+    document.getElementById('copyTemplate').onclick = async () => {
+      try{
+        await navigator.clipboard.writeText(body);
+        const old = document.getElementById('copyTemplate').textContent;
+        document.getElementById('copyTemplate').textContent = "Copied";
+        setTimeout(()=>document.getElementById('copyTemplate').textContent = old, 1200);
+      }catch(e){
+        alert("Copy failed. You can manually copy from your email draft after clicking Email.");
+      }
+    };
+  </script>
+</body>
+</html>
+
